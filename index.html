@@ -32,7 +32,10 @@ canvas{display:block;width:100%;height:100%}
 ol{margin:0;padding:0;list-style:none;counter-reset:s}
 li{counter-increment:s;border:3px solid var(--ink);padding:8px 8px 8px 38px;margin-bottom:8px;position:relative;opacity:.45;font-weight:500;font-size:15px}
 li::before{content:counter(s);position:absolute;left:6px;top:6px;width:22px;height:22px;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-weight:700;font-size:13px}
+<<<<<<< HEAD
 li{cursor:pointer}li:hover{opacity:1}
+=======
+>>>>>>> 9945c9bd406380f498064e1f268c176d5b3b9628
 li.on{opacity:1;background:var(--y);color:#111;font-weight:700}
 li.on::before{background:#111;color:var(--y)}
 li.done{opacity:.8}
@@ -57,7 +60,11 @@ li.warn.on{background:var(--r);color:#fff}
 </div>
 <div class="grid">
 <div class="stage" id="stage"><div class="banner" id="ban">★ You’ve arrived at Dilkash Palace</div></div>
+<<<<<<< HEAD
 <div class="panel"><h2>Directions <small style="font-weight:500;text-transform:none">· tap a step</small></h2><ol id="steps"></ol></div>
+=======
+<div class="panel"><h2>Directions</h2><ol id="steps"></ol></div>
+>>>>>>> 9945c9bd406380f498064e1f268c176d5b3b9628
 </div>
 <div class="ctl">
 <button id="rp">↻ Replay</button><button id="pp">❚❚ Pause</button><button class="sp on" data-s="1">1.0×</button><button class="sp" data-s="1.5">1.5×</button><button class="sp" data-s="2">2.0×</button>
@@ -141,6 +148,7 @@ box(12,16,12,0x4d96ff,70,8,-14);
 for(var r=0;r<4;r++)for(var c=0;c<3;c++)box(1.6,1.6,.2,0xffffff,66.5+c*3.5,3+r*3.5,-7.9);
 
 // destination: Dilkash Palace
+<<<<<<< HEAD
 function cyl(r,h,c,x,y,z){var m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,h,24),new THREE.MeshLambertMaterial({color:c}));m.rotation.x=Math.PI/2;m.position.set(x,y,z);scene.add(m);return m}
 function buildPalace(px){
  var CO=0xf4837d,DK=0xe8665f,RIM=0xd9544f,WH=0xffffff,MR=0x7a2e35,i;
@@ -189,13 +197,21 @@ function buildPalace(px){
 }
 buildPalace(PALACE_X);
 
+=======
+box(18,12,12,0xffd93d,PALACE_X,6,-14);box(20,1.2,14,0xff6b9d,PALACE_X,12.6,-14);
+label('DILKASH PALACE','#ffffff',PALACE_X,7,-7.4,3.4);
+>>>>>>> 9945c9bd406380f498064e1f268c176d5b3b9628
 
 // chowrangis and road names
 var wr=new THREE.Mesh(new THREE.CylinderGeometry(10,10,.3,40),new THREE.MeshLambertMaterial({color:0x3a3a3a}));wr.position.set(190,0,0);scene.add(wr);
 var wi=new THREE.Mesh(new THREE.CylinderGeometry(3,3,.8,28),new THREE.MeshLambertMaterial({color:0x6bcb77}));wi.position.set(190,.3,0);scene.add(wi);
 var sgBox=box(4,.8,4,0xffffff,240,.4,9);var kbBox=box(4,.8,4,0xffffff,-120,.4,9);
 var wp=label('WATER PUMP','#4d96ff',190,6,0,2.6);wp.userData.max=150;var sg=label('SOHRAB GOTH','#ffffff',240,6,9,2.4);sg.userData.onlyB=1;sg.userData.max=150;var kb=label('KARIMABAD','#ffffff',-120,6,9,2.4);kb.userData.onlyA=1;kb.userData.max=150;
+<<<<<<< HEAD
 label('AYESHA MANZIL','#ffd93d',-60,9,0,2.6);
+=======
+label('AYESHA MANZIL','#ffd93d',-60,14,0,2.6);
+>>>>>>> 9945c9bd406380f498064e1f268c176d5b3b9628
 
 
 // car
@@ -233,7 +249,11 @@ function load(k){
   ['At the end of the pavement before Ayesha Manzil chowrangi, take the U-turn.',find(function(p){return p.x<=-25&&p.z>0})]
  ]).concat(common);
  var ol=document.getElementById('steps');ol.innerHTML='';
+<<<<<<< HEAD
  steps.forEach(function(s,i){var li=document.createElement('li');li.textContent=s[0];if(s[2])li.className='warn';li.tabIndex=0;li.onclick=function(){jump(i)};ol.appendChild(li)});
+=======
+ steps.forEach(function(s){var li=document.createElement('li');li.textContent=s[0];if(s[2])li.className='warn';ol.appendChild(li)});
+>>>>>>> 9945c9bd406380f498064e1f268c176d5b3b9628
  var xs_=ROUTES[k].map(function(p){return p[0]}),mn=Math.min.apply(0,xs_),mx=Math.max.apply(0,xs_);
  ov={cx:(mn+mx)/2,span:Math.max(mx-mn,100)};
  reset();
@@ -248,8 +268,11 @@ function setSteps(){
  steps.forEach(function(s,i){if(u>=s[1])a=i});
  for(var i=0;i<lis.length;i++){lis[i].classList.toggle('on',i==a);lis[i].classList.toggle('done',i<a)}
 }
+<<<<<<< HEAD
 function jump(i){u=Math.min(steps[i][1],.9999);done=false;run=true;document.getElementById('ban').style.display='none';document.getElementById('pp').textContent='❚❚ Pause';
  var p=curve.getPointAt(u),t=curve.getTangentAt(u);car.position.copy(p);cam.position.set(p.x-t.x*20,11,p.z-t.z*20+9);lookV.set(p.x+t.x*9,4,p.z+t.z*9-3);setSteps()}
+=======
+>>>>>>> 9945c9bd406380f498064e1f268c176d5b3b9628
 var clock=new THREE.Clock();
 function tick(){
  requestAnimationFrame(tick);
